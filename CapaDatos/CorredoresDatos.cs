@@ -12,6 +12,9 @@ namespace CapaDatos
             "User Id=sa;" +
             "Password=admin123;";
 
+        /// <summary>
+        /// Constructor vacío
+        /// </summary>
         public CorredoresDatos()
         {
 
@@ -41,17 +44,18 @@ namespace CapaDatos
                         string nombreCorredor = lector["NombreCorredor"].ToString();
                         int edad = int.Parse(lector["Edad"].ToString());
                         string marca = lector["Marca"].ToString();
+                        int puntos = int.Parse(lector["Puntos"].ToString());
 
-                        Corredor corredor = new Corredor(id, nombreCorredor, edad, marca);
+                        Corredor corredor = new Corredor(id, nombreCorredor, edad, marca, puntos);
                         corredores.Add(corredor);
                     }
 
                 }
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
 
-                throw;
+                throw ex;
             }
 
             return corredores;

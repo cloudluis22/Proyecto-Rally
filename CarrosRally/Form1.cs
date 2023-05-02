@@ -22,6 +22,8 @@ namespace CarrosRally
             dataCorredores.Columns.Add("Nombre");
             dataCorredores.Columns.Add("Edad");
             dataCorredores.Columns.Add("Marca");
+            dataCorredores.Columns.Add("Puntos");
+
 
             foreach (Corredor corredor in listaCorredores)
             {
@@ -31,6 +33,9 @@ namespace CarrosRally
             dataGridView1.DataSource = dataCorredores;
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

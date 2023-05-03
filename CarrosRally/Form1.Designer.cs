@@ -51,7 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic Medium", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(30, 191);
+            this.label1.Location = new System.Drawing.Point(38, 191);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(357, 39);
             this.label1.TabIndex = 1;
@@ -66,6 +66,7 @@
             this.BtnAgregarCorredor.TabIndex = 2;
             this.BtnAgregarCorredor.Text = "Agregar Corredor";
             this.BtnAgregarCorredor.UseVisualStyleBackColor = true;
+            this.BtnAgregarCorredor.Click += new System.EventHandler(this.BtnAgregarCorredor_Click);
             // 
             // BtnAgregarMarca
             // 
@@ -101,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(423, 499);
             this.Controls.Add(this.BtnVerMarcas);
             this.Controls.Add(this.BtnVerCorredores);

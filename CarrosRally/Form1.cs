@@ -16,9 +16,10 @@ namespace CarrosRally
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void BtnAgregarCorredor_Click(object sender, EventArgs e)
         {
-
+            FormAgregarCorredor formAgregarCorredor = new FormAgregarCorredor();
+            formAgregarCorredor.ShowDialog();
         }
     }
 }

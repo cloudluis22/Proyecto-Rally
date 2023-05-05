@@ -1,0 +1,68 @@
+﻿using CapaNegocios;
+using Modelos;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CarrosRally
+{
+    public partial class FormVerCorredores : Form
+    {
+        Corredor corredorSeleccionado;
+        public FormVerCorredores()
+        {
+            InitializeComponent();
+        }
+
+        private void BtnEliminarCorredor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormVerCorredores_Load(object sender, EventArgs e)
+        {
+            LblCorredorActual.Text = String.Empty;
+
+            CorredoresNegocios contextoCorredores = new CorredoresNegocios();
+            List<Corredor> listaCorredores = contextoCorredores.GetCorredores();
+
+            DataTable dataCorredores = new DataTable();
+
+            dataCorredores.Columns.Add("ID. Corredor");
+            dataCorredores.Columns.Add("Nombre");
+            dataCorredores.Columns.Add("Edad");
+            dataCorredores.Columns.Add("Marca");
+            dataCorredores.Columns.Add("Puntos");
+
+
+            foreach (Corredor corredor in listaCorredores)
+            {
+                dataCorredores.Rows.Add(corredor.id, corredor.nombreCorredor, corredor.edad.ToString(), corredor.marca, corredor.puntos);
+            }
+
+            DataGridCorredores.DataSource = dataCorredores;
+            DataGridCorredores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void DataGridCorredores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView rowSeleccionada = new DataGridView();
+            rowSeleccionada = DataGridCorredores;
+            corredorSeleccionado = new Corredor(
+                rowSeleccionada.CurrentRow.Cells[0].Value.ToString(),
+                rowSeleccionada.CurrentRow.Cells[1].Value.ToString(),
+                int.Parse(rowSeleccionada.CurrentRow.Cells[2].Value.ToString()),
+                rowSeleccionada.CurrentRow.Cells[3].Value.ToString(),
+                int.Parse(rowSeleccionada.CurrentRow.Cells[4].Value.ToString())
+                );
+            LblCorredorActual.Text = corredorSeleccionado.nombreCorredor;
+            BtnEditarCorredor.Enabled = true;
+        }
+    }
+}

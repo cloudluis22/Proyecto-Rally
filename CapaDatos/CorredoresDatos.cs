@@ -91,5 +91,31 @@ namespace CapaDatos
             }
         }
 
+        /// <summary>
+        /// Elimina un corredor de la base de datos.
+        /// </summary>
+        /// <param name="id"> ID del corredor a eliminar. </param>
+        /// <returns></returns>
+        public string EliminarCorredor(string id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(cadenaAcceso))
+                {
+                    conn.Open();
+                    string query = "DELETE FROM Corredores WHERE Id = @id";
+                    SqlCommand comando = new SqlCommand(query, conn);
+                    comando.Parameters.AddWithValue("id", id);
+                    int res = comando.ExecuteNonQuery();
+                    return "Corredor eliminado con éxito. Actualice los datos para visualizar los cambios.";
+                }
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+                throw ex;
+            }
+        }
+
     }
 }

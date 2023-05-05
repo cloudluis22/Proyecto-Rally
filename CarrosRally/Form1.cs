@@ -24,7 +24,8 @@ namespace CarrosRally
 
         private void BtnVerCorredores_Click(object sender, EventArgs e)
         {
-
+            FormVerCorredores formVerCorredores = new FormVerCorredores();
+            formVerCorredores.ShowDialog();
         }
     }
 }

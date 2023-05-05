@@ -172,19 +172,9 @@
             0,
             0,
             0});
-            this.NumericPuntos.Minimum = new decimal(new int[] {
-            18,
-            0,
-            0,
-            0});
             this.NumericPuntos.Name = "NumericPuntos";
             this.NumericPuntos.Size = new System.Drawing.Size(120, 23);
             this.NumericPuntos.TabIndex = 11;
-            this.NumericPuntos.Value = new decimal(new int[] {
-            18,
-            0,
-            0,
-            0});
             // 
             // label7
             // 

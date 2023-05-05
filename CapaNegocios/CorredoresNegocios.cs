@@ -21,5 +21,10 @@ namespace CapaNegocios
         {
             return contexto.AgregarCorredor(nombreCorredor, nacionalidad, edad, marca, puntos);
         }
+
+        public string EliminarCorredor(string id)
+        {
+            return contexto.EliminarCorredor(id);
+        }
     }
 }

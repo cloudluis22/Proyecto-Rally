@@ -61,5 +61,35 @@ namespace CapaDatos
             return corredores;
         }
 
+        public string AgregarCorredor(string nombreCorredor, string nacionalidad, int edad, string marca, int puntos)
+        {
+            try
+            {
+               using(SqlConnection conn = new SqlConnection(cadenaAcceso))
+                {
+                    Guid id = Guid.NewGuid();
+
+                    conn.Open();
+                    string query = "INSERT INTO Corredores(Id, NombreCorredor, Nacionalidad, Edad, Marca, Puntos) VALUES(@id, @nombre, @nacionalidad, @edad, @marca, @puntos)";
+                    SqlCommand comando = new SqlCommand(query, conn);
+                    comando.Parameters.AddWithValue("id", id.ToString());
+                    comando.Parameters.AddWithValue("nombre", nombreCorredor);
+                    comando.Parameters.AddWithValue("nacionalidad", nacionalidad);
+                    comando.Parameters.AddWithValue("edad", edad);
+                    comando.Parameters.AddWithValue("marca", marca);
+                    comando.Parameters.AddWithValue("puntos", puntos);
+
+                    int res = comando.ExecuteNonQuery();
+                    return "Corredor Agregado Exitosamente.";
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+                throw ex;
+            }
+        }
+
     }
 }

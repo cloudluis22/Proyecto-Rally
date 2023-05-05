@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using Modelos;
+using System.Text.RegularExpressions;
 
 namespace CapaNegocios
 {
@@ -14,6 +15,11 @@ namespace CapaNegocios
         public List<Corredor> GetCorredores()
         {
             return contexto.GetCorredores();
+        }
+
+        public string AgregarCorredor(string nombreCorredor, string nacionalidad, int edad, string marca, int puntos)
+        {
+            return contexto.AgregarCorredor(nombreCorredor, nacionalidad, edad, marca, puntos);
         }
     }
 }

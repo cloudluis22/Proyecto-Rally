@@ -21,5 +21,10 @@ namespace CarrosRally
             FormAgregarCorredor formAgregarCorredor = new FormAgregarCorredor();
             formAgregarCorredor.ShowDialog();
         }
+
+        private void BtnVerCorredores_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

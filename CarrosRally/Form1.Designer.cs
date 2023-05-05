@@ -87,6 +87,7 @@
             this.BtnVerCorredores.TabIndex = 4;
             this.BtnVerCorredores.Text = "Ver Corredores";
             this.BtnVerCorredores.UseVisualStyleBackColor = true;
+            this.BtnVerCorredores.Click += new System.EventHandler(this.BtnVerCorredores_Click);
             // 
             // BtnVerMarcas
             // 

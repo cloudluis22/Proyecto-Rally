@@ -20,15 +20,8 @@ namespace CarrosRally
             InitializeComponent();
         }
 
-        private void BtnEliminarCorredor_Click(object sender, EventArgs e)
+        private void MostrarCorredores()
         {
-
-        }
-
-        private void FormVerCorredores_Load(object sender, EventArgs e)
-        {
-            LblCorredorActual.Text = String.Empty;
-
             CorredoresNegocios contextoCorredores = new CorredoresNegocios();
             List<Corredor> listaCorredores = contextoCorredores.GetCorredores();
 
@@ -48,6 +41,26 @@ namespace CarrosRally
 
             DataGridCorredores.DataSource = dataCorredores;
             DataGridCorredores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void BtnEliminarCorredor_Click(object sender, EventArgs e)
+        {
+            CorredoresNegocios contextoCorredores = new CorredoresNegocios();
+
+            if(MessageBox.Show("¿Seguro que desea eliminar a " + corredorSeleccionado.nombreCorredor + "?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+               string res = contextoCorredores.EliminarCorredor(corredorSeleccionado.id);
+                MessageBox.Show(res, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+
+            contextoCorredores.EliminarCorredor(corredorSeleccionado.id);
+            MostrarCorredores();
+        }
+
+        private void FormVerCorredores_Load(object sender, EventArgs e)
+        {
+            LblCorredorActual.Text = String.Empty;
+            MostrarCorredores();
         }
 
         private void DataGridCorredores_CellClick(object sender, DataGridViewCellEventArgs e)

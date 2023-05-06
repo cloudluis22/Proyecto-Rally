@@ -238,6 +238,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormAgregarCorredor";
             this.Text = "Agregar Corredor";
+            this.Load += new System.EventHandler(this.FormAgregarCorredor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericEdad)).EndInit();

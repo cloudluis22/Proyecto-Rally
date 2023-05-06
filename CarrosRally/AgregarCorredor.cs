@@ -26,5 +26,10 @@ namespace CarrosRally
             MessageBox.Show(accion, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        private void FormAgregarCorredor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -94,6 +94,7 @@
             this.BtnEditarCorredor.TabIndex = 7;
             this.BtnEditarCorredor.Text = "Editar Corredor";
             this.BtnEditarCorredor.UseVisualStyleBackColor = true;
+            this.BtnEditarCorredor.Click += new System.EventHandler(this.BtnEditarCorredor_Click);
             // 
             // BtnEliminarCorredor
             // 

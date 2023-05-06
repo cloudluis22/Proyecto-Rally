@@ -121,9 +121,9 @@
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(54, 275);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 18);
+            this.label5.Size = new System.Drawing.Size(138, 18);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Nombre del Corredor";
+            this.label5.Text = "Edad del Corredor";
             // 
             // NumericEdad
             // 
@@ -168,8 +168,8 @@
             // 
             this.NumericPuntos.Location = new System.Drawing.Point(54, 422);
             this.NumericPuntos.Maximum = new decimal(new int[] {
-            99,
-            0,
+            1874919423,
+            2328306,
             0,
             0});
             this.NumericPuntos.Name = "NumericPuntos";

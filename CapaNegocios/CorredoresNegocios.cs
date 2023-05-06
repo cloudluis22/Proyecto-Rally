@@ -26,5 +26,10 @@ namespace CapaNegocios
         {
             return contexto.EliminarCorredor(id);
         }
+
+        public Corredor GetCorredor(string id)
+        {
+            return contexto.GetCorredor(id);
+        }
     }
 }

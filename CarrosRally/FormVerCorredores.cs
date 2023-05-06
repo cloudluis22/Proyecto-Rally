@@ -29,6 +29,7 @@ namespace CarrosRally
 
             dataCorredores.Columns.Add("ID. Corredor");
             dataCorredores.Columns.Add("Nombre");
+            dataCorredores.Columns.Add("Nacionalidad");
             dataCorredores.Columns.Add("Edad");
             dataCorredores.Columns.Add("Marca");
             dataCorredores.Columns.Add("Puntos");
@@ -36,7 +37,7 @@ namespace CarrosRally
 
             foreach (Corredor corredor in listaCorredores)
             {
-                dataCorredores.Rows.Add(corredor.id, corredor.nombreCorredor, corredor.edad.ToString(), corredor.marca, corredor.puntos);
+                dataCorredores.Rows.Add(corredor.id, corredor.nombreCorredor, corredor.nacionalidad, corredor.edad.ToString(), corredor.marca, corredor.puntos);
             }
 
             DataGridCorredores.DataSource = dataCorredores;
@@ -70,12 +71,20 @@ namespace CarrosRally
             corredorSeleccionado = new Corredor(
                 rowSeleccionada.CurrentRow.Cells[0].Value.ToString(),
                 rowSeleccionada.CurrentRow.Cells[1].Value.ToString(),
-                int.Parse(rowSeleccionada.CurrentRow.Cells[2].Value.ToString()),
-                rowSeleccionada.CurrentRow.Cells[3].Value.ToString(),
-                int.Parse(rowSeleccionada.CurrentRow.Cells[4].Value.ToString())
+                rowSeleccionada.CurrentRow.Cells[2].Value.ToString(),
+                int.Parse(rowSeleccionada.CurrentRow.Cells[3].Value.ToString()),
+                rowSeleccionada.CurrentRow.Cells[4].Value.ToString(),
+                int.Parse(rowSeleccionada.CurrentRow.Cells[5].Value.ToString())
                 );
             LblCorredorActual.Text = corredorSeleccionado.nombreCorredor;
             BtnEditarCorredor.Enabled = true;
+            BtnEliminarCorredor.Enabled = true;
+        }
+
+        private void BtnEditarCorredor_Click(object sender, EventArgs e)
+        {
+            EditarCorredor editarCorredor = new EditarCorredor(corredorSeleccionado.id);
+            editarCorredor.ShowDialog();
         }
     }
 }

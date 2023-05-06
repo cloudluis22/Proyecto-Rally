@@ -42,11 +42,12 @@ namespace CapaDatos
                     {
                         string id = lector["Id"].ToString();
                         string nombreCorredor = lector["NombreCorredor"].ToString();
+                        string nacionalidad = lector["Nacionalidad"].ToString();
                         int edad = int.Parse(lector["Edad"].ToString());
                         string marca = lector["Marca"].ToString();
                         int puntos = int.Parse(lector["Puntos"].ToString());
 
-                        Corredor corredor = new Corredor(id, nombreCorredor, edad, marca, puntos);
+                        Corredor corredor = new Corredor(id, nombreCorredor, nacionalidad, edad, marca, puntos);
                         corredores.Add(corredor);
                     }
 
@@ -107,7 +108,7 @@ namespace CapaDatos
                     SqlCommand comando = new SqlCommand(query, conn);
                     comando.Parameters.AddWithValue("id", id);
                     int res = comando.ExecuteNonQuery();
-                    return "Corredor eliminado con éxito. Actualice los datos para visualizar los cambios.";
+                    return "Corredor eliminado con éxito.";
                 }
             }
             catch (SqlException ex)
@@ -115,6 +116,45 @@ namespace CapaDatos
                 return ex.Message;
                 throw ex;
             }
+        }
+
+        public Corredor GetCorredor(string idCorredor)
+        {
+            Corredor corredor = new Corredor();
+            
+            try
+            {
+               using(SqlConnection conn = new SqlConnection(cadenaAcceso))
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM Corredores WHERE Id = @id";
+                    SqlCommand comando = new SqlCommand(query, conn);
+                    comando.Parameters.AddWithValue("id", idCorredor);
+                    int res = comando.ExecuteNonQuery();
+                    SqlDataReader lector = comando.ExecuteReader();
+
+                    while (lector.Read())
+                    {
+                        string id = lector["Id"].ToString();
+                        string nombreCorredor = lector["NombreCorredor"].ToString();
+                        string nacionalidad = lector["Nacionalidad"].ToString();
+                        int edad = int.Parse(lector["Edad"].ToString());
+                        string marca = lector["Marca"].ToString();
+                        int puntos = int.Parse(lector["Puntos"].ToString());
+
+                         corredor = new Corredor(id, nombreCorredor, nacionalidad,edad, marca, puntos);
+
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            return corredor;
+
         }
 
     }

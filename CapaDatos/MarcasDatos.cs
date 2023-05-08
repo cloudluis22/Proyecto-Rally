@@ -9,7 +9,7 @@ using Modelos;
 
 namespace CapaDatos
 {
-    internal class MarcasDatos
+    public class MarcasDatos
     {
         string cadenaAcceso =
     "Server=JL;" +

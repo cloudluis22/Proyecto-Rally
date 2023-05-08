@@ -62,6 +62,15 @@ namespace CapaDatos
             return corredores;
         }
 
+        /// <summary>
+        /// Agrega un corredor a la base de datos
+        /// </summary>
+        /// <param name="nombreCorredor"> Nombre del corredor. </param>
+        /// <param name="nacionalidad"> Nacionalidad del corredor. </param>
+        /// <param name="edad"> Edad actual del corredor.  </param>
+        /// <param name="marca"> Marca a la que pertenece el corredor. </param>
+        /// <param name="puntos"> Puntos que tiene el corredor actualmente. </param>
+        /// <returns></returns>
         public string AgregarCorredor(string nombreCorredor, string nacionalidad, int edad, string marca, int puntos)
         {
             try
@@ -118,6 +127,12 @@ namespace CapaDatos
             }
         }
 
+
+        /// <summary>
+        /// Obtiene un corredor en particular.
+        /// </summary>
+        /// <param name="idCorredor"> ID única del conductor. </param>
+        /// <returns></returns>
         public Corredor GetCorredor(string idCorredor)
         {
             Corredor corredor = new Corredor();
@@ -155,6 +170,34 @@ namespace CapaDatos
 
             return corredor;
 
+        }
+
+        public string EditCorredor(string id, string nombreCorredor, string nacionalidad, int edad, string marca, int puntos)
+        {
+           
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(cadenaAcceso))
+                {
+                    conn.Open();
+                    string query = "UPDATE Corredores SET NombreCorredor = @nombre, Nacionalidad = @nacionalidad, Edad = @edad, Marca = @marca, Puntos = @puntos WHERE Id = @id";
+                    SqlCommand comando = new SqlCommand(query, conn);
+                    comando.Parameters.AddWithValue("id", id);
+                    comando.Parameters.AddWithValue("nombre", nombreCorredor);
+                    comando.Parameters.AddWithValue("nacionalidad", nacionalidad);
+                    comando.Parameters.AddWithValue("edad", edad);
+                    comando.Parameters.AddWithValue("marca", marca);
+                    comando.Parameters.AddWithValue("puntos", puntos);
+
+                    int res = comando.ExecuteNonQuery();
+                    return "Corredor actualizado con éxito. Actualice la tabla para visualizar los cambios.";
+                }
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+                throw ex;
+            }
         }
 
     }

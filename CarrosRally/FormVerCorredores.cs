@@ -86,5 +86,10 @@ namespace CarrosRally
             EditarCorredor editarCorredor = new EditarCorredor(corredorSeleccionado.id);
             editarCorredor.ShowDialog();
         }
+
+        private void BtnActualizarDatos_Click(object sender, EventArgs e)
+        {
+            MostrarCorredores();
+        }
     }
 }

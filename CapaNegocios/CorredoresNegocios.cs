@@ -31,5 +31,10 @@ namespace CapaNegocios
         {
             return contexto.GetCorredor(id);
         }
+
+        public string EditCorredor(string id, string nombreCorredor, string nacionalidad, int edad, string marca, int puntos)
+        {
+            return contexto.EditCorredor(id, nombreCorredor, nacionalidad, edad, marca, puntos);    
+        }
     }
 }

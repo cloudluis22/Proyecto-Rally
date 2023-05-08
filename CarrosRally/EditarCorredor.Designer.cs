@@ -77,6 +77,7 @@
             this.BtnEditarCorredor.TabIndex = 29;
             this.BtnEditarCorredor.Text = "Modificar";
             this.BtnEditarCorredor.UseVisualStyleBackColor = true;
+            this.BtnEditarCorredor.Click += new System.EventHandler(this.BtnEditarCorredor_Click);
             // 
             // label7
             // 

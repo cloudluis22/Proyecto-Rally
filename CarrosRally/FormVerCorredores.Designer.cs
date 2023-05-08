@@ -49,7 +49,7 @@
             this.DataGridCorredores.ReadOnly = true;
             this.DataGridCorredores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridCorredores.RowTemplate.Height = 25;
-            this.DataGridCorredores.Size = new System.Drawing.Size(511, 292);
+            this.DataGridCorredores.Size = new System.Drawing.Size(553, 292);
             this.DataGridCorredores.TabIndex = 0;
             this.DataGridCorredores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridCorredores_CellClick);
             // 
@@ -116,6 +116,7 @@
             this.BtnActualizarDatos.TabIndex = 9;
             this.BtnActualizarDatos.Text = "Actualizar Datos";
             this.BtnActualizarDatos.UseVisualStyleBackColor = true;
+            this.BtnActualizarDatos.Click += new System.EventHandler(this.BtnActualizarDatos_Click);
             // 
             // FormVerCorredores
             // 

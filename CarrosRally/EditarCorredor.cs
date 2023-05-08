@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaNegocios;
 using Modelos;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,8 @@ namespace CarrosRally
 
         private void EditarCorredor_Load(object sender, EventArgs e)
         {
-            CorredoresDatos corredoresDatos = new CorredoresDatos();
-            Corredor corredor = corredoresDatos.GetCorredor(idCorredor);
+            CorredoresNegocios corredoresNegocios = new CorredoresNegocios();
+            Corredor corredor = corredoresNegocios.GetCorredor(idCorredor);
 
             TxtBoxNombre.Text = corredor.nombreCorredor.ToString();
             TxtBoxMarca.Text = corredor.marca.ToString();
@@ -32,6 +33,14 @@ namespace CarrosRally
             NumericEdad.Value = int.Parse(corredor.edad.ToString());
             NumericPuntos.Value = int.Parse(corredor.puntos.ToString());
 
+        }
+
+        private void BtnEditarCorredor_Click(object sender, EventArgs e)
+        {
+            CorredoresNegocios corredoresNegocios = new CorredoresNegocios();
+            string res = corredoresNegocios.EditCorredor(idCorredor, TxtBoxNombre.Text, TxtBoxNacionalidad.Text, (int) NumericEdad.Value, TxtBoxMarca.Text, (int) NumericPuntos.Value);
+            MessageBox.Show(res, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

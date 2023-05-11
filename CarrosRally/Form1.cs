@@ -27,5 +27,11 @@ namespace CarrosRally
             FormVerCorredores formVerCorredores = new FormVerCorredores();
             formVerCorredores.ShowDialog();
         }
+
+        private void BtnVerMarcas_Click(object sender, EventArgs e)
+        {
+            FormVerMarcas formVerMarcas = new FormVerMarcas();
+            formVerMarcas.ShowDialog();
+        }
     }
 }

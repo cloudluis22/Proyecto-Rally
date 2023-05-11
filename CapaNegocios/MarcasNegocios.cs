@@ -8,7 +8,7 @@ using Modelos;
 
 namespace CapaNegocios
 {
-    internal class MarcasNegocios
+    public class MarcasNegocios
     {
         MarcasDatos contexto;
         public MarcasNegocios()

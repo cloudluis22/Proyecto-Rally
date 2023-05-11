@@ -54,7 +54,6 @@ namespace CarrosRally
                 MessageBox.Show(res, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
-            contextoCorredores.EliminarCorredor(corredorSeleccionado.id);
             MostrarCorredores();
         }
 

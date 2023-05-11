@@ -98,6 +98,7 @@
             this.BtnVerMarcas.TabIndex = 5;
             this.BtnVerMarcas.Text = "Ver Marcas";
             this.BtnVerMarcas.UseVisualStyleBackColor = true;
+            this.BtnVerMarcas.Click += new System.EventHandler(this.BtnVerMarcas_Click);
             // 
             // FormPrincipal
             // 
